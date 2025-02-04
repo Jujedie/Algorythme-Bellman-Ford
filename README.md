@@ -14,7 +14,7 @@ Ce projet implémente l'algorithme de Bellman-Ford en Java pour trouver les plus
 Pour exécuter l'algorithme, compilez et exécutez la classe `Graphe` qui contient un exemple de graphe et appelle l'algorithme de Bellman-Ford.
 
 ```sh
-javac \*.java
+javac *.java
 java Graphe
 ```
 
