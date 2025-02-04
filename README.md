@@ -24,4 +24,4 @@ L'exécution du programme affichera les distances les plus courtes du sommet de 
 
 ## Auteurs
 
-Ce projet a été réalisé par Jujedie.
+Ce projet a été réalisé par Jujedie, Louis-Yuichi et Nahel Kochat.
