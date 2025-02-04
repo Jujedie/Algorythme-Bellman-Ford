@@ -56,13 +56,15 @@ public class Graphe {
 
 		Sommet[] sommets = graphe.getSommets();
 
-		for (Sommet sommet : sommets) {
-			System.out.println(sommet);
-		}
+		
 
 		int[][] matriceAdjacence = graphe.getMatriceAdjacence();
 
-		BellmanFordAlgorithm.afficherResultats(BellmanFordAlgorithm.bellmanFordAlgorithm(graphe, matriceAdjacence, graphe.getSommet(0)));
+		for (Sommet sommet : sommets) {
+			System.out.println("\n======= "+sommet.getId()+" =======\n\n"+sommet+"\n\n");
+			BellmanFordAlgorithm.afficherResultats(BellmanFordAlgorithm.bellmanFordAlgorithm(graphe, matriceAdjacence, sommet));
+		}
+		
 
 	}
 }
