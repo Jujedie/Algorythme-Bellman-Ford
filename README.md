@@ -24,8 +24,4 @@ L'exécution du programme affichera les distances les plus courtes du sommet de 
 
 ## Auteurs
 
-Ce projet a été réalisé par [votre nom].
-
-## Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+Ce projet a été réalisé par Jujedie.
