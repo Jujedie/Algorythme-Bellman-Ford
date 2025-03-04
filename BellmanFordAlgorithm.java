@@ -15,6 +15,8 @@ public class BellmanFordAlgorithm {
 					if (d[j] != Double.POSITIVE_INFINITY) {
 						if (d[k] > (d[j] + matriceAdjacence[j][k])) {
 							d[k] = (int)(d[j] + matriceAdjacence[j][k]);
+							System.out.println("Itération : "+ k);
+							afficherResultats(d);
 						}
 					}
 				}
@@ -34,5 +36,6 @@ public class BellmanFordAlgorithm {
 				System.out.println("Distance du sommet 0 au sommet " + i + " : " + d[i]);
 			}
 		}
+		System.out.println();
 	}
 }
