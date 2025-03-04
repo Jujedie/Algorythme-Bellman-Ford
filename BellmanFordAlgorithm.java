@@ -34,7 +34,7 @@ public class BellmanFordAlgorithm {
 	public static void afficherResultats(double[] d){
 		for (int i = 0; i < d.length; i++) {
 			if (d[i] == Integer.MAX_VALUE) {
-				System.out.println("Pas de chemin entre le sommet 0 et le sommet " + i);
+				System.out.println("Distance du sommet 0 au sommet " + i + " : Infinity");
 			}
 			else{
 				System.out.println("Distance du sommet 0 au sommet " + i + " : " + d[i]);
