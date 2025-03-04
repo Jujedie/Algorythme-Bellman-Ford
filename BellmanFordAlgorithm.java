@@ -56,6 +56,7 @@ public class BellmanFordAlgorithm {
 		return true;
 	}
 	public static boolean isActualDInferiorToLastD(double[] dActuel, double[] dPrec){
+		# ne pas tester avec le max MAX_VALUE ou le infinity.
 
 	}
 }
