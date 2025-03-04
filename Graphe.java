@@ -69,7 +69,7 @@ public class Graphe {
 
 		for (Sommet sommet : sommets) {
 			System.out.println("\n======= "+sommet.getId()+" =======\n\n"+sommet+"\n\n");
-			BellmanFordAlgorithm.afficherResultats(BellmanFordAlgorithm.bellmanFordAlgorithm(graphe, matriceAdjacence, sommet));
+			BellmanFordAlgorithm.bellmanFordAlgorithm(graphe, matriceAdjacence, sommet);
 		}
 		
 

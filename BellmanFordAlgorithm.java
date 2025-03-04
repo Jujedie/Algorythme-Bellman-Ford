@@ -9,18 +9,22 @@ public class BellmanFordAlgorithm {
 			}
 		}
 
+		System.out.println("Initialisation");
+		afficherResultats(d);
+
 		for(int i = 0; i < g.getNombreSommets() - 1; i++){
-			for (int j = 0; j < g.getNombreSommets(); j++) {
-				for (int k = 0; k < g.getNombreSommets(); k++) {
-					if (d[j] != Double.POSITIVE_INFINITY) {
-						if (d[k] > (d[j] + matriceAdjacence[j][k])) {
-							d[k] = (int)(d[j] + matriceAdjacence[j][k]);
-							System.out.println("Itération : "+ k);
-							afficherResultats(d);
+			for (int u = 0; u < g.getNombreSommets(); u++) {
+				for (int v = 0; v < g.getNombreSommets(); v++) {
+					if (d[u] != Double.POSITIVE_INFINITY) {
+						if (d[v] > (d[u] + matriceAdjacence[u][v])) {
+							d[v] = (int)(d[u] + matriceAdjacence[u][v]);
+							
 						}
 					}
 				}
 			}
+			System.out.println("Itération : " + i);
+			afficherResultats(d);
 		}
 
 
