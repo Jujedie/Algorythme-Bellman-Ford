@@ -9,10 +9,14 @@ public class BellmanFordAlgorithm {
 			}
 		}
 
-		System.out.println("Initialisation");
-		afficherResultats(d);
+		String resultat = afficherResultats(d,s.getId()+"");
+		String resultat2 = resultat;
+
+		System.out.println("Initialisation\n"+resultat);
+		
 
 		for(int i = 0; i < g.getNombreSommets() - 1; i++){
+			resultat = resultat2;
 			for (int u = 0; u < g.getNombreSommets(); u++) {
 				for (int v = 0; v < g.getNombreSommets(); v++) {
 					if (d[u] != Double.POSITIVE_INFINITY) {
@@ -23,23 +27,28 @@ public class BellmanFordAlgorithm {
 					}
 				}
 			}
-			System.out.println("Itération : " + i);
-			afficherResultats(d);
+			resultat2 = afficherResultats(d,s.getId()+"");
+			System.out.println("Itération : "+i+"\n"+resultat);
+			if (resultat.equals(resultat)){
+				return d;
+			}
 		}
 
 
 		return d;
 	}
 
-	public static void afficherResultats(double[] d){
+	public static String afficherResultats(double[] d, String idSommet){
+		String res = "";
 		for (int i = 0; i < d.length; i++) {
 			if (d[i] == Integer.MAX_VALUE) {
-				System.out.println("Distance du sommet 0 au sommet " + i + " : Infinity");
+				res += "Distance du sommet "+idSommet+" au sommet " + i + " : Infinity\n";
 			}
 			else{
-				System.out.println("Distance du sommet 0 au sommet " + i + " : " + d[i]);
+				res += "Distance du sommet "+idSommet+" au sommet " + i + " : " + d[i]+"\n";
 			}
 		}
-		System.out.println();
+		res += "\n";
+		return res;
 	}
 }
