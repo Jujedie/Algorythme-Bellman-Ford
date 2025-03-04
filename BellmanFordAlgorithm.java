@@ -19,17 +19,14 @@ public class BellmanFordAlgorithm {
 			resultat = resultat2;
 			for (int u = 0; u < g.getNombreSommets(); u++) {
 				for (int v = 0; v < g.getNombreSommets(); v++) {
-					if (d[u] != Double.POSITIVE_INFINITY) {
-						if (d[v] > (d[u] + matriceAdjacence[u][v])) {
-							d[v] = (int)(d[u] + matriceAdjacence[u][v]);
-							
-						}
+					if (d[v] > (d[u] + matriceAdjacence[u][v])) {
+						d[v] = (int)(d[u] + matriceAdjacence[u][v]);
 					}
 				}
 			}
 			resultat2 = afficherResultats(d,s.getId()+"");
-			System.out.println("Itération : "+i+"\n"+resultat);
-			if (resultat.equals(resultat)){
+			System.out.println("Itération : "+i+"\n"+resultat2);
+			if (resultat2.equals(resultat)){
 				return d;
 			}
 		}
@@ -42,7 +39,7 @@ public class BellmanFordAlgorithm {
 		String res = "";
 		for (int i = 0; i < d.length; i++) {
 			if (d[i] == Integer.MAX_VALUE) {
-				res += "Distance du sommet "+idSommet+" au sommet " + i + " : Infinity\n";
+				res += "Distance du sommet "+idSommet+" au sommet " + i + " : " + d[i]+"\n";
 			}
 			else{
 				res += "Distance du sommet "+idSommet+" au sommet " + i + " : " + d[i]+"\n";

@@ -10,13 +10,21 @@ public class Graphe {
 	public Graphe(int nbSommet, int nbArc){
 		this(nbSommet);
 		for(int i = 0; i < nbArc; i++){
-			int randomSommet1 = (int)(Math.random()*nbSommet);
-			int randomSommet2 = (int)(Math.random()*nbSommet);
-			if (randomSommet2 == randomSommet1) {
+			int randomSommet1;
+			int randomSommet2;
+
+			int cpt = 0;
+			do {
+				randomSommet1 = (int)(Math.random()*nbSommet);
 				randomSommet2 = (int)(Math.random()*nbSommet);
+				cpt++;
+			} while(!hasNotArc(randomSommet1, randomSommet2) && cpt < 1000);
+
+			if (cpt == 1000){
+				return;
 			}
 
-			this.getSommet(randomSommet1).ajouterArrete(this.getSommet(randomSommet2), (int)(Math.random()*(nbArc+nbSommet)));
+			this.getSommet(randomSommet1).ajouterArrete(this.getSommet(randomSommet2), (int)(Math.random()*(nbArc+nbSommet))+1);
 		}
 	}
 
@@ -36,6 +44,18 @@ public class Graphe {
 		}
 		
 		return matrice;
+	}
+
+	public boolean hasNotArc(int sommet1, int sommet2){
+		if (sommet1 == sommet2){
+			return false;
+		}
+		for (Arc arc : this.getSommet(sommet1).getArcs()) {
+			if (arc.getArrivee().getId() == sommet2) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public Sommet[] getSommets() {
