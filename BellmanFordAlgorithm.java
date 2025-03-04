@@ -29,6 +29,7 @@ public class BellmanFordAlgorithm {
 			if (resultat2.equals(resultat)){
 				return d;
 			}
+			if (!isDNegative(d)){return d;}
 		}
 
 
@@ -39,7 +40,7 @@ public class BellmanFordAlgorithm {
 		String res = "";
 		for (int i = 0; i < d.length; i++) {
 			if (d[i] == Integer.MAX_VALUE) {
-				res += "Distance du sommet "+idSommet+" au sommet " + i + " : " + d[i]+"\n";
+				res += "Distance du sommet "+idSommet+" au sommet " + i + " : " + "Infinity\n";
 			}
 			else{
 				res += "Distance du sommet "+idSommet+" au sommet " + i + " : " + d[i]+"\n";
@@ -47,5 +48,11 @@ public class BellmanFordAlgorithm {
 		}
 		res += "\n";
 		return res;
+	}
+	public static boolean isDNegative(double[] d){
+		for (int i = 0; i < d.length;i++){
+			if (d[i] < 0){return false;}
+		}
+		return true;
 	}
 }
