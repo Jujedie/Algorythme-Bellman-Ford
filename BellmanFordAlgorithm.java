@@ -1,6 +1,7 @@
 public class BellmanFordAlgorithm {
 	public static double[] bellmanFordAlgorithm(Graphe g,int[][] matriceAdjacence, Sommet s){
 		double[] d = new double[g.getNombreSommets()];
+		double[] oldD = null;
 		
 		d[s.getId()] = 0;
 		for (int i = 0; i < g.getNombreSommets(); i++) {
@@ -29,7 +30,9 @@ public class BellmanFordAlgorithm {
 			if (resultat2.equals(resultat)){
 				return d;
 			}
-			if (!isDNegative(d)){return d;}
+			if (oldD != null && ! isActualDInferiorToLastD(d, oldD)){return d;}
+
+			oldD = d.clone();
 		}
 
 
@@ -56,7 +59,14 @@ public class BellmanFordAlgorithm {
 		return true;
 	}
 	public static boolean isActualDInferiorToLastD(double[] dActuel, double[] dPrec){
-		# ne pas tester avec le max MAX_VALUE ou le infinity.
+		boolean res = false;
+
+		for (int cpt = 0; cpt < dActuel.length; cpt++)
+		{
+			if (dActuel[cpt] != Double.POSITIVE_INFINITY && dPrec[cpt] != Double.POSITIVE_INFINITY &&dActuel[cpt] < dPrec[cpt] && res != false) res = true;
+		}
+
+		return res;
 
 	}
 }
